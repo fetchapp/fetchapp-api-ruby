@@ -16,8 +16,12 @@ spec = Gem::Specification.new do |s|
   s.summary  = "Ruby interface to fetchapp.com"
   s.files      = ["README",
                   "lib/fetchapi.rb",
+                  "lib/fetchapi/base.rb",
                   "lib/fetchapi/item.rb",
                   "lib/fetchapi/order.rb"]
+  s.test_files = ["spec/base_spec.rb",
+                  "spec/item_spec.rb",
+                  "spec/order_spec.rb"]
   s.add_dependency("httparty")
 end
 
