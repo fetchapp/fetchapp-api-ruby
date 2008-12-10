@@ -2,12 +2,14 @@ module FetchAPI
   class Item
     include HTTParty
     base_uri 'http://demo.fetchapp.com/api'
+    basic_auth 'demokey', 'demotoken'
+    format :xml
   
     attr_reader :sku
     def initialize(data)
       case data
-      when Fixnum
-        @sku = sku
+      when Integer, String
+        @sku = data
       when Hash
         @sku, @data = data['sku'], data
       end
@@ -24,8 +26,8 @@ module FetchAPI
     def self.find(selector)
       case selector
       when :all
-        self.get('/items')
-      when Fixnum
+        self.get('/items')['items'].map { |data| self.new(data) }
+      when Integer, String
         self.new(selector)
       end
     end
@@ -36,12 +38,12 @@ module FetchAPI
   
   protected
     def data
-      @data ||= self.get("/items/#{sku}")
+      @data ||= self.class.get("/items/#{sku}")['item']
     end
   
     def method_missing(method)
-      if (data.has_key? method)
-        data[method]
+      if (data.has_key? method.to_s)
+        data[method.to_s]
       else
         super
       end

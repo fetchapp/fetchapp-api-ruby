@@ -14,7 +14,8 @@ spec = Gem::Specification.new do |s|
   s.email    = "tdreyno@gmail.com"
   s.homepage = "http://github.com/tdreyno/#{NAME}"
   s.summary  = "Ruby interface to fetchapp.com"
-  s.files      = ["lib/fetchapi.rb",
+  s.files      = ["README",
+                  "lib/fetchapi.rb",
                   "lib/fetchapi/item.rb",
                   "lib/fetchapi/order.rb"]
   s.add_dependency("httparty")

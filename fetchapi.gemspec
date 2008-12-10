@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.authors = ["Thomas Reynolds"]
   s.date = %q{2008-12-09}
   s.email = %q{tdreyno@gmail.com}
-  s.files = ["lib/fetchapi.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb"]
+  s.files = ["README", "lib/fetchapi.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb"]
   s.homepage = %q{http://github.com/tdreyno/fetchapi}
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.1}
