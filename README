@@ -1,0 +1,5 @@
+gem install tdreyno-fetchapi-ruby
+require 'fetchapi'
+FetchAPI.setup('demokey', 'demotoken')
+FetchAPI::Item.find(:all)
+FetchAPI::Order.find(1).destroy
