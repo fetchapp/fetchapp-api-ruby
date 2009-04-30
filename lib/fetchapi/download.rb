@@ -1,4 +1,4 @@
 module FetchAPI
-  class Download < Base
+  class Download < FetchAPI::Base
   end
 end

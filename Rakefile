@@ -12,4 +12,11 @@ Echoe.new('fetchapi-ruby', '0.2.1') do |p|
   p.runtime_dependencies = ["httparty"]
 end
 
+task :default => :spec
+desc "Run all specs"
+Spec::Rake::SpecTask.new(:spec) do |t|
+  t.spec_opts = %w(--format specdoc --colour)
+  t.spec_files = Dir['spec/**/*_spec.rb'].sort
+end
+
 Dir["#{File.dirname(__FILE__)}/tasks/*.rake"].sort.each { |ext| load ext }
