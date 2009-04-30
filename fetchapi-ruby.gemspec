@@ -9,8 +9,8 @@ Gem::Specification.new do |s|
   s.date = %q{2009-04-30}
   s.description = %q{Integrate your site with http://fetchapp.com for seamless digital delivery.}
   s.email = %q{mikelarkin@pixallent.com}
-  s.extra_rdoc_files = ["CHANGELOG", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "README"]
-  s.files = ["CHANGELOG", "fetchapi-ruby.gemspec", "fetchapi.gemspec", "init.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "Manifest", "Rakefile", "README", "spec/base_spec.rb", "spec/download_spec.rb", "spec/item_spec.rb", "spec/order_spec.rb"]
+  s.extra_rdoc_files = ["CHANGELOG", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "README"]
+  s.files = ["CHANGELOG", "fetchapi.gemspec", "init.rb", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "Manifest", "Rakefile", "README", "spec/account_spec.rb", "spec/base_spec.rb", "spec/download_spec.rb", "spec/item_spec.rb", "spec/order_spec.rb", "fetchapi-ruby.gemspec"]
   s.has_rdoc = true
   s.homepage = %q{http://github.com/pixallent/fetchapi-ruby}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Fetchapi-ruby", "--main", "README"]

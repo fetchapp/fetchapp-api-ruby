@@ -1,6 +1,7 @@
 require 'rubygems'
 require 'rake'
 require 'echoe'
+require 'spec/rake/spectask'
 
 Echoe.new('fetchapi-ruby', '0.2.1') do |p|
   p.description    = "Integrate your site with http://fetchapp.com for seamless digital delivery."
