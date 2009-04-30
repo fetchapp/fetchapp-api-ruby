@@ -5,3 +5,4 @@ $:.unshift(File.dirname(__FILE__))
 require 'fetchapi/base'
 require 'fetchapi/item'
 require 'fetchapi/order'
+require 'fetchapi/download'

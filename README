@@ -1,5 +1,4 @@
-gem install tdreyno-fetchapi-ruby
-require 'fetchapi'
-FetchAPI::Base.basic_auth('demokey', 'demotoken')
+gem install pixallent-fetchapi-ruby
+FetchAPI::Base.basic_auth('youraccount.fetchapp.com', 'demokey', 'demotoken')
 FetchAPI::Item.find(:all)
 FetchAPI::Order.find('0001').first_name
