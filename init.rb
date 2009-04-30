@@ -1,1 +1,1 @@
-require 'fetchapi'
+require 'fetchapi-ruby'
