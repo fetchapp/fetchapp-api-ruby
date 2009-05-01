@@ -1,22 +1,28 @@
 module FetchAPI
   class Base
-    
-	 def initialize(id_or_attributes)  
+
+    def initialize(id_or_attributes)
       case id_or_attributes
       when Integer, String
         @attributes = get("/#{self.class.pluralized_class_name}/#{id_or_attributes.to_s}")
-		  @attributes = @attributes[self.class.singularized_class_name]
-		  @id = @attributes['id']
+        @attributes = @attributes[self.class.singularized_class_name]
+        @id = @attributes['id']
       when Hash
         @attributes = id_or_attributes
-		  @id = id_or_attributes['id']
+        @id = id_or_attributes['id']
       end
     end
 
     def self.find(selector, params={})
       case selector
       when :all
-        execute(:get, "/#{pluralized_class_name}")[pluralized_class_name].map { |data| new(data) }
+        objects = execute(:get, "/#{pluralized_class_name}")
+
+        if objects[pluralized_class_name].blank?
+          return []
+        else
+          objects[pluralized_class_name].map { |data| new(data) }
+        end
       when Integer, String
         new(selector)
       end
@@ -29,6 +35,7 @@ module FetchAPI
 
     # Initializes the connection
     def self.basic_auth(url, key, token)
+		@key = key # Save this in case they generate a new token
       Connector.base_uri(url)
       Connector.basic_auth(key, token)
     end
@@ -60,8 +67,8 @@ module FetchAPI
         raise(response.messsage)
       when 400..499 then
         raise(response.message)
-      when 500..599 then 
-			raise(response.message)
+      when 500..599 then
+        raise(response.message)
       else
         raise("Unknown Response")
       end

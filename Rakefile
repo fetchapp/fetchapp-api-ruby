@@ -2,7 +2,7 @@ require 'rubygems'
 require 'rake'
 require 'echoe'
 
-Echoe.new('fetchapi-ruby', '0.9') do |p|
+Echoe.new('fetchapi-ruby', '0.9.1') do |p|
   p.description    = "Integrate your site with http://fetchapp.com for seamless digital delivery."
   p.url            = "http://github.com/pixallent/fetchapi-ruby"
   p.author         = ["Thomas Reynolds, Michael Larkin"]

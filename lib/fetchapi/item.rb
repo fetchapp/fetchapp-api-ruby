@@ -1,6 +1,6 @@
 module FetchAPI
   class Item < FetchAPI::Base
-	attr_accessor :attributes
+	attr_accessor :id, :attributes
 
     def initialize(id_or_attributes)
       case id_or_attributes
@@ -16,7 +16,7 @@ module FetchAPI
     ################ Class Methods ###############
     #--
     def self.create(options)
-      execute(:post, "/items/create", :item => options)
+      return FetchAPI::Item.new(execute(:post, "/items/create", :item => options)["item"])
     end
 
     #--
@@ -28,8 +28,16 @@ module FetchAPI
     end
 
     def update(options)
-      put("/items/#{sku}", :item => options)
+      self.attributes = put("/items/#{sku}", :item => options)["item"]
+		self.id = self.sku
     end
+
+	 def downloads
+		downloads = get("/items/#{sku}/downloads")
+		if downloads
+			downloads["downloads"].map { |data| FetchAPI::Download.new(data) }
+		end
+	 end
 
 
   end

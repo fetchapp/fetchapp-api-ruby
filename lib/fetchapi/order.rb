@@ -11,13 +11,28 @@ module FetchAPI
       case selector
       when :current
         params.merge!(:filter => "current")
-        execute(:get, "/#{pluralized_class_name}?#{params.to_params}")[pluralized_class_name].map { |data| new(data) }
+        orders = execute(:get, "/orders?#{params.to_params}")
+        if orders["orders"].blank?
+          return []
+        else
+          orders["orders"].map { |data| new(data) }
+        end
       when :manual
         params.merge!(:filter => "manual")
-        execute(:get, "/#{pluralized_class_name}?#{params.to_params}")[pluralized_class_name].map { |data| new(data) }
+        orders = execute(:get, "/orders?#{params.to_params}")
+        if orders["orders"].blank?
+          return []
+        else
+          orders["orders"].map { |data| new(data) }
+        end
       when :expired
         params.merge!(:filter => "expired")
-        execute(:get, "/#{pluralized_class_name}?#{params.to_params}")[pluralized_class_name].map { |data| new(data) }
+        orders = execute(:get, "/orders?#{params.to_params}")
+        if orders["orders"].blank?
+          return []
+        else
+          orders["orders"].map { |data| new(data) }
+        end
       else
         super
       end
@@ -25,7 +40,7 @@ module FetchAPI
 
     # Creates a new order
     def self.create(options={})
-      execute(:post, "/orders/create", :order => options)
+      return FetchAPI::Order.new(execute(:post, "/orders/create", :order => options)["order"])
     end
 
     #--
@@ -52,9 +67,15 @@ module FetchAPI
 
     # Immediately updates the order with the new parameters
     def update(options={})
-      put("/orders/#{id}", :order => options)
+      self.attributes = put("/orders/#{id}", :order => options)["order"]
     end
 
+    def downloads(params={})
+      downloads = get("/orders/#{id}/downloads")
+      if downloads
+        downloads["downloads"].map { |data| FetchAPI::Download.new(data) }
+      end
+    end
 
   end
 end
