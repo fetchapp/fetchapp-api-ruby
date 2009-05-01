@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'httparty'
+require 'net/http'
 
 $:.unshift(File.dirname(__FILE__))
 require 'fetchapi/base'

@@ -1,27 +1,36 @@
 module FetchAPI
   class Item < FetchAPI::Base
-	
-	 def initialize(id_or_attributes)
+	attr_accessor :attributes
+
+    def initialize(id_or_attributes)
       case id_or_attributes
       when Integer, String
-        @id = id_or_attributes
-		  @attributes = get("/#{self.class.pluralized_class_name}/#{@sku}")
+        @attributes = get("/#{self.class.pluralized_class_name}/#{id_or_attributes.to_s}")
+        @attributes = @attributes[self.class.singularized_class_name]
       when Hash
-		  @id = id_or_attributes[:sku]
         @attributes = id_or_attributes
       end
-    end  
-	
+    end
+
+    #--
+    ################ Class Methods ###############
+    #--
+    def self.create(options)
+      execute(:post, "/items/create", :item => options)
+    end
+
+    #--
+    ################# Instance Methods ###############
+    #--
+
     def destroy
       delete("/items/#{sku}/delete")
     end
-  
+
     def update(options)
-      put("/items/#{sku}", options)
+      put("/items/#{sku}", :item => options)
     end
-  
-    def self.create(options)
-      post("/items/create", options)
-    end
+
+
   end
 end

@@ -1,11 +1,20 @@
-require File.join(File.dirname(__FILE__), "..", "lib", "fetchapi")
+require File.join(File.dirname(__FILE__), "..", "lib", "fetchapi-ruby")
 include FetchAPI
 
+
 describe Download do
-  xit "should find by id" do
-    Download.find(1).id.should == 1
+  before do
+	Base.basic_auth('http://pixallent.myhost.dev:3000/api', 'pixallent', 'pixallent')
   end
+  
+
+it "should find by id" do
+    Download.find(37).id.to_s.should == "37"
+  end            
+
+
   it "should find all" do
-    Download.find(:all).length.should > 0
+	 d = Download.find(:all)
+    d.class.should == Array
   end
 end
