@@ -11,8 +11,3 @@ LICENSE
 Manifest
 Rakefile
 README
-spec/account_spec.rb
-spec/base_spec.rb
-spec/download_spec.rb
-spec/item_spec.rb
-spec/order_spec.rb
