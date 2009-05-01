@@ -1,4 +1,5 @@
 CHANGELOG
+fetchapi-ruby.gemspec
 init.rb
 lib/fetchapi/account.rb
 lib/fetchapi/base.rb

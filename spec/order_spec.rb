@@ -18,7 +18,7 @@ describe Order do
 	 Order.find('1015').destroy
 	rescue
 	end
-    Order.create(:id => "1015", :title => "Test Order", :first_name => "Donald", :last_name => "Duck", :email => "donald@duck.com", :order_items => [{:sku => 'BIZCARD', :downloads_remaining => '6'}])
+    Order.create(:id => "1015", :title => "Test Order", :first_name => "Donald", :last_name => "Duck", :email => "donald@duck.com", :order_items => [{:sku => 'BIZCARD'}, {:sku => "CATALOG"}])
     order = Order.find('1015')
     order.id.to_s.should == "1015"
   end
