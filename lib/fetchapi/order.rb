@@ -6,7 +6,9 @@ module FetchAPI
     #--
     ################ Class Methods ###############
     #--
-
+    
+	 # Finds an Order or orders based on the specified parameters
+	 # :all, :current, :manual, :expired, or by ID
     def self.find(selector, params={})
       case selector
       when :current
@@ -38,7 +40,7 @@ module FetchAPI
       end
     end
 
-    # Creates a new order
+    # Creates a new Order
     def self.create(options={})
       return FetchAPI::Order.new(execute(:post, "/orders/create", :order => options)["order"])
     end
@@ -47,7 +49,7 @@ module FetchAPI
     ################# Instance Methods ###############
     #--
 
-    # Permanently deletes the order
+    # Permanently deletes the Order
     def destroy
       delete("/orders/#{id}/delete")
     end
@@ -65,11 +67,12 @@ module FetchAPI
       post("/orders/#{id}/send_email", options)
     end
 
-    # Immediately updates the order with the new parameters
+    # Immediately updates the Order with the new parameters
     def update(options={})
       self.attributes = put("/orders/#{id}", :order => options)["order"]
     end
-
+    
+	 # Returns all the downloads associated with this Order
     def downloads(params={})
       downloads = get("/orders/#{id}/downloads")
       if downloads

@@ -1,7 +1,7 @@
 module FetchAPI
   class Base
-
-    def initialize(id_or_attributes)
+    require 'pp'
+    def initialize(id_or_attributes) #:nodoc:
       case id_or_attributes
       when Integer, String
         @attributes = get("/#{self.class.pluralized_class_name}/#{id_or_attributes.to_s}")
@@ -13,7 +13,7 @@ module FetchAPI
       end
     end
 
-    def self.find(selector, params={})
+    def self.find(selector, params={}) #:nodoc:
       case selector
       when :all
         objects = execute(:get, "/#{pluralized_class_name}")
@@ -28,38 +28,53 @@ module FetchAPI
       end
     end
 
-    class Connector
+    class Connector  #:nodoc:
       include HTTParty
       format :xml
     end
 
-    # Initializes the connection
+    # Initializes the connection to the API
     def self.basic_auth(url, key, token)
-		@key = key # Save this in case they generate a new token
+      @key = key # Save this in case they generate a new token later
       Connector.base_uri(url)
       Connector.basic_auth(key, token)
     end
 
+    def self.key #:nodoc:
+      return @key
+    end
+
     protected
-    def self.singularized_class_name
+    def self.singularized_class_name #:nodoc:
       ancestors.first.to_s.split('::').last.downcase
     end
-    def self.pluralized_class_name
+    def self.pluralized_class_name #:nodoc:
       ancestors.first.to_s.split('::').last.downcase << 's'
     end
 
-    def post(*args);   self.class.execute(:post, *args); end
-    def get(*args);    self.class.execute(:get, *args); end
-    def delete(*args); self.class.execute(:delete, *args); end
-    def put(*args);    self.class.execute(:put, *args); end
+    def post(*args) #:nodoc:
+      self.class.execute(:post, *args)
+    end
+
+    def get(*args) #:nodoc:
+      self.class.execute(:get, *args)
+    end
+
+    def delete(*args) #:nodoc:
+      self.class.execute(:delete, *args)
+    end
+
+    def put(*args) #:nodoc:
+      self.class.execute(:put, *args)
+    end
 
     # Do HTTP request, handle errors
-    def self.execute(action, path, options = {})
+    def self.execute(action, path, options = {}) #:nodoc:
       handle_response(Connector.send(action, path, :query => options))
       #Connector.send(action, path, options)
     end
 
-    def self.handle_response(response)
+    def self.handle_response(response) #:nodoc:
       case response.code
       when 100..199 then response
       when 200..299 then response
@@ -77,7 +92,7 @@ module FetchAPI
 
 
     # Access attributes as class methods of the Item object
-    def method_missing(method)
+    def method_missing(method) #:nodoc:
       return super unless attributes.has_key?(method.to_s)
       attributes[method.to_s]
     end

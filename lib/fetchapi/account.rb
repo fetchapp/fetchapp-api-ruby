@@ -1,12 +1,15 @@
 module FetchAPI
   class Account < FetchAPI::Base
+	 attr_accessor :attributes
     #--
     ################ Class Methods ###############
     #--
 
     # Retrieves information about the Account
     def self.details
-      new(execute(:get, "/account"))
+		account = Account.new({})
+		account.attributes = execute(:get, "/account")["account"]
+		account
     end
 
     # Generates a new API token.  Subsequent API calls using the
@@ -15,8 +18,7 @@ module FetchAPI
       token = execute(:get, "/new_token")
       unless token["message"].blank?
         # Reauthorize
-		  puts "XXXXXXXX #{token["message"]}"
-		  Connector.basic_auth(@key, token["message"])
+		  Connector.basic_auth(FetchAPI::Base.key, token["message"])
         token
       end
     end

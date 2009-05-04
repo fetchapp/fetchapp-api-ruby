@@ -2,11 +2,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fetchapi-ruby}
-  s.version = "0.9.1"
+  s.version = "0.9.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Thomas Reynolds, Michael Larkin"]
-  s.date = %q{2009-05-01}
+  s.date = %q{2009-05-04}
   s.description = %q{Integrate your site with http://fetchapp.com for seamless digital delivery.}
   s.email = %q{mikelarkin@pixallent.com}
   s.extra_rdoc_files = ["CHANGELOG", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "README"]
