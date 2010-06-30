@@ -4,7 +4,7 @@ module FetchAPI
 
 	 # Find :all downloads or the specified ID
 	 def self.find(selector, params={})
-		   super(selector, params={})
+		   super(selector, params)
     end
 
   end

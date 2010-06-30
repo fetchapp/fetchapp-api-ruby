@@ -19,7 +19,7 @@ module FetchAPI
 
     # Find :all items or a specific SKU
     def self.find(selector, params={})
-      super(selector, params={})
+      super(selector, params)
     end
 
 
