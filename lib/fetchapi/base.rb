@@ -36,7 +36,7 @@ module FetchAPI
     # Initializes the connection to the API
     def self.basic_auth(url, key, token)
       @key = key # Save this in case they generate a new token later
-      Connector.base_uri(url)
+      Connector.base_uri(url+"/api")
       Connector.basic_auth(key, token)
     end
 
@@ -70,8 +70,7 @@ module FetchAPI
 
     # Do HTTP request, handle errors
     def self.execute(action, path, options = {}) #:nodoc:
-      handle_response(Connector.send(action, path, :query => options))
-      #Connector.send(action, path, options)
+      handle_response(Connector.send(action, path, :body => options))
     end
 
     def self.handle_response(response) #:nodoc:
