@@ -1,10 +1,6 @@
-= Installation
- From Github
-	gem sources -a http://gems.github.com (you only have to do this once)
-	gem install pixallent-fetchapi-ruby                                                   
+= Installation from RubyGems.org
+	gem install fetchapi-ruby                                                   
  
- RubyForge
-	coming soon!
                 
 = Setup
 	FetchAPI::Base.basic_auth('youraccount.fetchapp.com', 'demokey', 'demotoken')
