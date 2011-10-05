@@ -16,7 +16,7 @@ module FetchAPI
     def self.find(selector, params={}) #:nodoc:
       case selector
       when :all
-        objects = execute(:get, "/#{pluralized_class_name}#{"?" + params.to_params unless params.blank?}")
+        objects = execute(:get, "/#{pluralized_class_name}#{"?" + params.to_param unless params.blank?}")
 
         if objects[pluralized_class_name].blank?
           return []

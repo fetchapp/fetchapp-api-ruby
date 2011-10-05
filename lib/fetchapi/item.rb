@@ -51,6 +51,5 @@ module FetchAPI
       end
     end
 
-
   end
 end
