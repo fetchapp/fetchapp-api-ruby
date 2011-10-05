@@ -6,14 +6,14 @@ module FetchAPI
     #--
     ################ Class Methods ###############
     #--
-    
-	 # Finds an Order or orders based on the specified parameters
-	 # :all, :current, :manual, :expired, or by ID
+
+   # Finds an Order or orders based on the specified parameters
+   # :all, :current, :manual, :expired, or by ID
     def self.find(selector, params={})
       case selector
       when :current
         params.merge!(:filter => "current")
-        orders = execute(:get, "/orders?#{params.to_params}")
+        orders = execute(:get, "/orders?#{params.to_param}")
         if orders["orders"].blank?
           return []
         else
@@ -21,7 +21,7 @@ module FetchAPI
         end
       when :manual
         params.merge!(:filter => "manual")
-        orders = execute(:get, "/orders?#{params.to_params}")
+        orders = execute(:get, "/orders?#{params.to_param}")
         if orders["orders"].blank?
           return []
         else
@@ -29,7 +29,7 @@ module FetchAPI
         end
       when :expired
         params.merge!(:filter => "expired")
-        orders = execute(:get, "/orders?#{params.to_params}")
+        orders = execute(:get, "/orders?#{params.to_param}")
         if orders["orders"].blank?
           return []
         else
@@ -71,8 +71,8 @@ module FetchAPI
     def update(options={})
       self.attributes = put("/orders/#{id}", :order => options)["order"]
     end
-    
-	 # Returns all the downloads associated with this Order
+
+   # Returns all the downloads associated with this Order
     def downloads(params={})
       downloads = get("/orders/#{id}/downloads")
       if downloads
