@@ -2,17 +2,17 @@
 
 Gem::Specification.new do |s|
   s.name = %q{fetchapi-ruby}
-  s.version = "1.1.2"
+  s.version = "1.1.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Larkin"]
-  s.date = %q{2009-05-04}
+  s.date = Date.today.strftime('%Y-%m-%d')
   s.description = %q{Integrate your site with http://fetchapp.com for seamless digital delivery.}
-  s.email = %q{mikelarkin@pixallent.com}
+  s.email = %q{support@get.sy}
   s.extra_rdoc_files = ["CHANGELOG", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "README"]
   s.files = ["CHANGELOG", "fetchapi-ruby.gemspec", "init.rb", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "Manifest", "Rakefile", "README"]
   s.has_rdoc = true
-  s.homepage = %q{http://github.com/pixallent/fetchapi-ruby}
+  s.homepage = %q{http://github.com/getsy/getsy-api-ruby}
   s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Fetchapi-ruby", "--main", "README"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{fetchapi-ruby}
