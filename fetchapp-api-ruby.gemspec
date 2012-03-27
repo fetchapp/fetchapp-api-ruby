@@ -1,19 +1,19 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{fetchapi-ruby}
-  s.version = "1.2"
+  s.name = %q{fetchapp-api-ruby}
+  s.version = "1.2.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Larkin"]
   s.date = Date.today.strftime('%Y-%m-%d')
   s.description = %q{Integrate your site with http://fetchapp.com for seamless digital delivery.}
-  s.email = %q{support@get.sy}
-  s.extra_rdoc_files = ["CHANGELOG", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "README"]
-  s.files = ["CHANGELOG", "fetchapi-ruby.gemspec", "init.rb", "lib/fetchapi/account.rb", "lib/fetchapi/base.rb", "lib/fetchapi/download.rb", "lib/fetchapi/item.rb", "lib/fetchapi/order.rb", "lib/fetchapi-ruby.rb", "LICENSE", "Manifest", "Rakefile", "README"]
+  s.email = %q{support@fetchapp.com}
+  s.extra_rdoc_files = ["CHANGELOG", "lib/fetchapp-api-ruby/account.rb", "lib/fetchapp-api-ruby/base.rb", "lib/fetchapp-api-ruby/download.rb", "lib/fetchapp-api-ruby/item.rb", "lib/fetchapp-api-ruby/order.rb", "lib/fetchapp-api-ruby.rb", "LICENSE", "README.md"]
+  s.files = ["CHANGELOG", "fetchapp-api-ruby.gemspec", "init.rb", "lib/fetchapp-api-ruby/account.rb", "lib/fetchapp-api-ruby/base.rb", "lib/fetchapp-api-ruby/download.rb", "lib/fetchapp-api-ruby/item.rb", "lib/fetchapp-api-ruby/order.rb", "lib/fetchapp-api-ruby.rb", "LICENSE", "Manifest", "Rakefile", "README.md"]
   s.has_rdoc = true
-  s.homepage = %q{http://github.com/getsy/getsy-api-ruby}
-  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "Fetchapi-ruby", "--main", "README"]
+  s.homepage = %q{http://github.com/getsy/fetchapp-api-ruby}
+  s.rdoc_options = ["--line-numbers", "--inline-source", "--title", "fetchapp-api-ruby", "--main", "README.md"]
   s.require_paths = ["lib"]
   s.rubyforge_project = %q{fetchapi-ruby}
   s.rubygems_version = %q{1.3.1}

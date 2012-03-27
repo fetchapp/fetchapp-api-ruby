@@ -1,1 +1,1 @@
-require 'fetchapi-ruby'
+require 'fetchapp-api-ruby'
