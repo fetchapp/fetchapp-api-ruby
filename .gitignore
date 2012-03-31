@@ -4,3 +4,4 @@ doc
 spec
 *.rbc
 .idea/
+*.gem
