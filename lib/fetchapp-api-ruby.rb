@@ -3,8 +3,8 @@ require 'httparty'
 require 'net/http'
 
 $:.unshift(File.dirname(__FILE__))
-require 'fetchapp-api-ruby/base'
-require 'fetchapp-api-ruby/account'
-require 'fetchapp-api-ruby/download'
-require 'fetchapp-api-ruby/item'
-require 'fetchapp-api-ruby/order'
+require 'fetch-api-ruby/base'
+require 'fetch-api-ruby/account'
+require 'fetch-api-ruby/download'
+require 'fetch-api-ruby/item'
+require 'fetch-api-ruby/order'
