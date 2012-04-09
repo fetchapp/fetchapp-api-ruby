@@ -3,7 +3,7 @@
 Gem::Specification.new do |s|
   s.name = %q{fetchapp-api-ruby}
   s.version = "1.2.4"
-
+  s.platform = Gem::Platform::RUBY
   s.required_rubygems_version = Gem::Requirement.new(">= 1.2") if s.respond_to? :required_rubygems_version=
   s.authors = ["Michael Larkin"]
   s.date = Date.today.strftime('%Y-%m-%d')
@@ -18,16 +18,8 @@ Gem::Specification.new do |s|
   s.rubygems_version = %q{1.3.1}
   s.summary = %q{This Ruby library allows you to integrate your site with http://fetchapp.com for seamless digital delivery so you can build additional functionality while retaining the core features of Fetch.  Credit for the bulk of the code goes to Thomas Reynolds.}
 
-  if s.respond_to? :specification_version then
-    current_version = Gem::Specification::CURRENT_SPECIFICATION_VERSION
-    s.specification_version = 2
+  s.add_runtime_dependency("httparty")
+  s.add_development_dependency("fakeweb")
+  s.add_development_dependency("mocha")
 
-    if Gem::Version.new(Gem::RubyGemsVersion) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<httparty>, [">= 0"])
-    else
-      s.add_dependency(%q<httparty>, [">= 0"])
-    end
-  else
-    s.add_dependency(%q<httparty>, [">= 0"])
-  end
 end
