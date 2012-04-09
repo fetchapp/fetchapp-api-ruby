@@ -10,7 +10,7 @@
 ```ruby
 	account = FetchAPI::Account.details
 
-	token = FetchAPI::Account.new_token  *Subsequent calls will use the new token automatically
+	token = FetchAPI::Account.new_token  #Subsequent calls will use the new token automatically
 ```
 # Downloads
 ```ruby
@@ -31,7 +31,7 @@
 
 	item.destroy
 
-	downloads = item.downloads  *Returns an array of FetchAPI::Downloads for this item
+	downloads = item.downloads  #Returns an array of FetchAPI::Downloads for this item
 ```
 # Orders
 ```ruby
@@ -51,5 +51,5 @@
 
 	order.destroy
 
-	downloads = order.downloads  *Returns an array of FetchAPI::Downloads for this order
+	downloads = order.downloads  #Returns an array of FetchAPI::Downloads for this order
 ```
