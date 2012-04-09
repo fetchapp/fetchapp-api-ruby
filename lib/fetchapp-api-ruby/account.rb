@@ -16,7 +16,7 @@ module FetchAPI
     # existing token will be refused.
     def self.new_token
       token = execute(:get, "/new_token")
-      unless token["message"].blank?
+      unless token["message"].nil? || token["message"].empty?
         # Reauthorize
         Connector.basic_auth(FetchAPI::Base.key, token["message"])
         token

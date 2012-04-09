@@ -1,34 +1,35 @@
 module FetchAPI
   class Base
     require 'pp'
+
     def initialize(id_or_attributes) #:nodoc:
       case id_or_attributes
-      when Integer, String
-        @attributes = get("/#{self.class.pluralized_class_name}/#{id_or_attributes.to_s}")
-        @attributes = @attributes[self.class.singularized_class_name]
-        @id = @attributes['id']
-      when Hash
-        @attributes = id_or_attributes
-        @id = id_or_attributes['id']
+        when Integer, String
+          @attributes = get("/#{self.class.pluralized_class_name}/#{id_or_attributes.to_s}")
+          @attributes = @attributes[self.class.singularized_class_name]
+          @id = @attributes['id']
+        when Hash
+          @attributes = id_or_attributes
+          @id = id_or_attributes['id']
       end
     end
 
     def self.find(selector, params={}) #:nodoc:
       case selector
-      when :all
-        objects = execute(:get, "/#{pluralized_class_name}#{"?" + params.to_param unless params.blank?}")
+        when :all
+          objects = execute(:get, "/#{pluralized_class_name}", params)
 
-        if objects[pluralized_class_name].blank?
-          return []
-        else
-          objects[pluralized_class_name].map { |data| new(data) }
-        end
-      when Integer, String
-        new(selector)
+          if objects[pluralized_class_name].nil? || objects[pluralized_class_name].empty?
+            return []
+          else
+            objects[pluralized_class_name].map { |data| new(data) }
+          end
+        when Integer, String
+          new(selector)
       end
     end
 
-    class Connector  #:nodoc:
+    class Connector #:nodoc:
       include HTTParty
       format :xml
     end
@@ -48,6 +49,7 @@ module FetchAPI
     def self.singularized_class_name #:nodoc:
       ancestors.first.to_s.split('::').last.downcase
     end
+
     def self.pluralized_class_name #:nodoc:
       ancestors.first.to_s.split('::').last.downcase << 's'
     end
@@ -75,16 +77,18 @@ module FetchAPI
 
     def self.handle_response(response) #:nodoc:
       case response.code
-      when 100..199 then response
-      when 200..299 then response
-      when 300.399 then
-        raise(response.messsage)
-      when 400..499 then
-        raise(response.message)
-      when 500..599 then
-        raise(response.message)
-      else
-        raise("Unknown Response")
+        when 100..199 then
+          response
+        when 200..299 then
+          response
+        when 300.399 then
+          raise(response.messsage)
+        when 400..499 then
+          raise(response.message)
+        when 500..599 then
+          raise(response.message)
+        else
+          raise("Unknown Response")
       end
 
     end

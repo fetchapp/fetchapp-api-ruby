@@ -1,1 +1,1 @@
-require 'fetchapp-api-ruby'
+require File.join(File.dirname(__FILE__), 'lib', 'fetchapp-api-ruby')

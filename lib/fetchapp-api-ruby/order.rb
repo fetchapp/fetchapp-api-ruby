@@ -13,24 +13,24 @@ module FetchAPI
       case selector
       when :current
         params.merge!(:filter => "current")
-        orders = execute(:get, "/orders?#{params.to_param}")
-        if orders["orders"].blank?
+        orders = execute(:get, "/orders", params)
+        if orders["orders"].nil? || orders["orders"].empty?
           return []
         else
           orders["orders"].map { |data| new(data) }
         end
       when :manual
         params.merge!(:filter => "manual")
-        orders = execute(:get, "/orders?#{params.to_param}")
-        if orders["orders"].blank?
+        orders = execute(:get, "/orders", params)
+        if orders["orders"].nil? || orders["orders"].empty?
           return []
         else
           orders["orders"].map { |data| new(data) }
         end
       when :expired
         params.merge!(:filter => "expired")
-        orders = execute(:get, "/orders?#{params.to_param}")
-        if orders["orders"].blank?
+        orders = execute(:get, "/orders", params)
+        if orders["orders"].nil? || orders["orders"].empty?
           return []
         else
           orders["orders"].map { |data| new(data) }
