@@ -45,7 +45,7 @@
 
 	order = FetchAPI::Order.find("1001")
 
-	order = FetchAPI::Order.create(:id => "1015", :title => "Test Order", :first_name => "Donald", :last_name => "Duck", :email => "donald@duck.com", :order_items => [{:sku => 'ABC0001'}, {:sku => 'ABC0002}])
+	order = FetchAPI::Order.create(:id => "1015", :title => "Test Order", :first_name => "Donald", :last_name => "Duck", :email => "donald@duck.com", :order_items => [{:sku => 'ABC0001'}, {:sku => 'ABC0002'}])
 
 	order.update(:first_name => "Daffy")
 
