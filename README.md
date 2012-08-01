@@ -4,7 +4,7 @@
 
 # Setup
 ```ruby
-	FetchAppAPI::Base.basic_auth('youraccount.fetchapp.com', 'demokey', 'demotoken')
+	FetchAppAPI::Base.basic_auth('demokey', 'demotoken')
 ```
 # Account
 ```ruby
@@ -31,7 +31,11 @@
 
 	product.destroy
 
+	product.stats  # Returns a FetchAppAPI::Product with only statistical fields filled in
+
 	downloads = product.downloads  # Returns an array of FetchAppAPI::Downloads for this product
+
+	files = product.files  # Returns an array of FetchAppAPI::Files for this product
 ```
 # Orders
 ```ruby
@@ -58,5 +62,9 @@
 
 	order.destroy
 
+	order.stats  # Returns a FetchAppAPI::Order with only statistical fields filled in
+
 	downloads = order.downloads  # Returns an array of FetchAppAPI::Downloads for this order
+
+	files = product.files  # Returns an array of FetchAppAPI::Files for this product
 ```
