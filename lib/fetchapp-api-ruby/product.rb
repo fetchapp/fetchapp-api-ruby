@@ -34,12 +34,12 @@ module FetchAppAPI
 
     # Permanently deletes the Product
     def destroy
-      delete("/products/#{sku}/delete")
+      delete("/products/#{self.sku}/delete")
     end
 
     # Immediately updates the Product
     def update(options)
-      self.attributes = put("/products/#{sku}", :product => options)["product"]
+      self.attributes = put("/products/#{self.sku}", :product => options)["product"]
       self.id = self.sku
     end
 

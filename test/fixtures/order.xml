@@ -19,7 +19,7 @@
             <order_id>1001</order_id>
             <guid>tydjdje</guid>
             <download_count type="integer">1</download_count>
-            <downloads_remaining type="integer"></downloads_remaining>
+            <downloads_remaining type="integer">3</downloads_remaining>
             <created_at type="datetime">2008-11-28T18:47:56+00:00</created_at>
             <files type="array">
                 <filename>file-1.txt</filename>
