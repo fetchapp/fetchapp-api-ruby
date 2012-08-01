@@ -1,5 +1,5 @@
-module FetchAPI
-  class Upload < FetchAPI::Base
+module FetchAppAPI
+  class Upload < FetchAppAPI::Base
     attr_accessor :id, :attributes
 
    # Find :all uploads or the specified ID

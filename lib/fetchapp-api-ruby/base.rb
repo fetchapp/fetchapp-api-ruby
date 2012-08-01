@@ -1,4 +1,13 @@
-module FetchAPI
+
+# Extend the String class to have the handy .blank? method
+class String
+  def blank?
+    self.empty? || self.nil?
+  end
+end
+
+module FetchAppAPI
+
   class Base
     require 'pp'
 
@@ -35,10 +44,12 @@ module FetchAPI
     end
 
     # Initializes the connection to the API
-    def self.basic_auth(url, key, token)
-      @key = key # Save this in case they generate a new token later
-      Connector.base_uri(url+"/api")
-      Connector.basic_auth(key, token)
+    def self.basic_auth(params={})
+      return false if params[:key].blank? || params[:token].blank?
+
+      @key = params[:key] # Save this in case they generate a new token later
+      Connector.base_uri((params[:url] || 'app.fetchapp.com')+"/api/v2")
+      Connector.basic_auth(params[:key], params[:token])
     end
 
     def self.key #:nodoc:
@@ -94,7 +105,7 @@ module FetchAPI
     end
 
 
-    # Access attributes as class methods of the Item object
+    # Access attributes as class methods of the object
     def method_missing(method) #:nodoc:
       return super unless attributes.has_key?(method.to_s)
       attributes[method.to_s]

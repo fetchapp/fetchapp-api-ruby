@@ -2,7 +2,7 @@ require 'rubygems'
 require 'test/unit'
 require 'fakeweb'
 require 'mocha'
-require 'lib/fetchapp-api-ruby'
+require 'fetchapp-api-ruby'
 
 FakeWeb.allow_net_connect = false
 

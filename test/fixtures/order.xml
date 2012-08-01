@@ -6,7 +6,7 @@
     <email>donald@duck.com</email>
     <link>/get/tydjdje</link>
     <link_full>http://demo.fetchapp.com/get/tydjdje</link_full>
-    <item_count type="integer">1</item_count>
+    <product_count type="integer">1</product_count>
     <download_count type="integer">1</download_count>
     <expiration_date type="datetime">2008-12-28T18:47:56+00:00</expiration_date>
     <download_limit type="integer">3</download_limit>
@@ -14,7 +14,7 @@
     <order_items>
         <order_item>
             <sku>BILL-WAX</sku>
-            <item_name>Quality Bill Wax</item_name>
+            <product_name>Quality Bill Wax</product_name>
             <price type="float">Quality Bill Wax</price>
             <order_id>1001</order_id>
             <guid>tydjdje</guid>

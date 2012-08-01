@@ -3,9 +3,9 @@ require 'test_helper'
 class OrderTest < Test::Unit::TestCase
 
   def setup
-    FetchAPI::Base.basic_auth('demo.fetchapp.com', 'demokey', 'demotoken')
-    FakeWeb.register_uri(:post, "http://demokey:demotoken@demo.fetchapp.com/api/orders/create", :body => load_fixture('order'), :status => 200, :content_type => "text/xml")
-    @order = FetchAPI::Order.create(:id => 1001)
+    FetchAppAPI::Base.basic_auth({:key => 'demokey', :token => 'demotoken'})
+    FakeWeb.register_uri(:post, "http://demokey:demotoken@app.fetchapp.com/api/v2/orders/create", :body => load_fixture('order'), :status => 200, :content_type => "text/xml")
+    @order = FetchAppAPI::Order.create(:id => 1001)
   end
 
   def teardown
@@ -13,7 +13,7 @@ class OrderTest < Test::Unit::TestCase
   end
 
   def test_destroy
-    FakeWeb.register_uri(:delete, "http://demokey:demotoken@demo.fetchapp.com/api/orders/1001/delete", :body => load_fixture('ok'), :status => 200, :content_type => "text/xml")
+    FakeWeb.register_uri(:delete, "http://demokey:demotoken@demo.fetchapp.com/api/v2/orders/1001/delete", :body => load_fixture('ok'), :status => 200, :content_type => "text/xml")
 
     @order.expects(:delete).with("/orders/1001/delete")
     @order.destroy

@@ -1,5 +1,5 @@
-module FetchAPI
-  class Download < FetchAPI::Base
+module FetchAppAPI
+  class Download < FetchAppAPI::Base
     attr_accessor :id, :attributes
 
    # Find :all downloads or the specified ID
