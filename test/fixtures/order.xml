@@ -1,62 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <order>
-    <id>1001</id>
-    <first_name>Donald</first_name>
-    <last_name>Duck</last_name>
-    <email>donald@duck.com</email>
-    <link>/get/tydjdje</link>
-    <link_full>http://demo.fetchapp.com/get/tydjdje</link_full>
-    <product_count type="integer">1</product_count>
-    <download_count type="integer">1</download_count>
-    <expiration_date type="datetime">2008-12-28T18:47:56+00:00</expiration_date>
-    <download_limit type="integer">3</download_limit>
-    <created_at type="datetime">2008-11-28T18:47:56+00:00</created_at>
-    <order_items>
-        <order_item>
-            <sku>BILL-WAX</sku>
-            <product_name>Quality Bill Wax</product_name>
-            <price type="float">Quality Bill Wax</price>
-            <order_id>1001</order_id>
-            <guid>tydjdje</guid>
-            <download_count type="integer">1</download_count>
-            <downloads_remaining type="integer">3</downloads_remaining>
-            <created_at type="datetime">2008-11-28T18:47:56+00:00</created_at>
-            <files type="array">
-                <filename>file-1.txt</filename>
-                <guid>abcdef</guid>
-                <download_count type="integer">1</download_count>
-                <link>/files/abcdef</link>
-                <link_full>http://demo.fetchapp.com/files/abcdef</link_full>
-                <downloads_remaining>type="integer 1</downloads_remaining>
-                <downloads type="array">
-                    <download>
-                        <order_id>1001</order_id>
-                        <ip_address>127.0.0.1</ip_address>
-                        <downloaded_at type="datetime">2009-04-27T04:13:09+00:00</downloaded_at>
-                        <size type="float">37088</size>
-                    </download>
-                    <download>
-                        <order_id>1001</order_id>
-                        <ip_address>127.0.0.1</ip_address>
-                        <downloaded_at type="datetime">2009-04-28T10:33:09+00:00</downloaded_at>
-                        <size type="float">877088</size>
-                    </download>
-                </downloads>
-            </files>
-            <downloads type="array">
-                <download>
-                    <order_id>1001</order_id>
-                    <ip_address>127.0.0.1</ip_address>
-                    <downloaded_at type="datetime">2009-04-27T04:13:09+00:00</downloaded_at>
-                    <size type="float">37088</size>
-                </download>
-                <download>
-                    <order_id>1001</order_id>
-                    <ip_address>127.0.0.1</ip_address>
-                    <downloaded_at type="datetime">2009-04-28T10:33:09+00:00</downloaded_at>
-                    <size type="float">877088</size>
-                </download>
-            </downloads>
-        </order_item>
-    </order_items>
+  <id>1001</id>
+  <first_name>Donald</first_name>
+  <last_name>Duck</last_name>
+  <email>donald@duck.com</email>
+  <link>/get/tydjdje</link>
+  <link_full>http://demo.fetchapp.com/get/tydjdje</link_full>
+  <product_count type="integer">1</product_count>
+  <download_count type="integer">1</download_count>
+  <expiration_date type="datetime">2008-12-28T18:47:56+00:00</expiration_date>
+  <download_limit type="integer">3</download_limit>
+  <created_at type="datetime">2008-11-28T18:47:56+00:00</created_at>
+  <order_items>
+    <link href="http://demo.fetchapp.com/api/orders/1001/order_items" rel="resource">/api/v2/orders/1001/order_items</link>
+  </order_items>
+  <downloads>
+    <link href="http://demo.fetchapp.com/api/orders/1001/downloads" rel="resource">/api/v2/orders/1001/downloads</link>
+  </downloads>
 </order>

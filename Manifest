@@ -4,9 +4,11 @@ init.rb
 lib/fetchapp-api-ruby/account.rb
 lib/fetchapp-api-ruby/base.rb
 lib/fetchapp-api-ruby/download.rb
+lib/fetchapp-api-ruby/file.rb
 lib/fetchapp-api-ruby/upload.rb
 lib/fetchapp-api-ruby/product.rb
 lib/fetchapp-api-ruby/order.rb
+lib/fetchapp-api-ruby/order_item.rb
 lib/fetchapp-api-ruby-ruby.rb
 LICENSE
 Manifest

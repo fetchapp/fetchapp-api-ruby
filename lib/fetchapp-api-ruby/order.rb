@@ -73,6 +73,15 @@ module FetchAppAPI
     end
 
     # Returns all the downloads associated with this Order
+    def order_items(params={})
+      order_items = get("/orders/#{id}/order_items")
+      if order_items
+        order_items["order_items"].map { |data| FetchAppAPI::OrderItem.new(data) }
+      end
+    end
+
+
+    # Returns all the downloads associated with this Order
     def downloads(params={})
       downloads = get("/orders/#{id}/downloads")
       if downloads

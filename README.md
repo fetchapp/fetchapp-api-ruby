@@ -33,9 +33,9 @@
 
 	product.stats  # Returns a FetchAppAPI::Product with only statistical fields filled in
 
-	downloads = product.downloads  # Returns an array of FetchAppAPI::Downloads for this product
+	downloads = product.downloads  # Returns an array of FetchAppAPI::Download for this product
 
-	files = product.files  # Returns an array of FetchAppAPI::Files for this product
+	files = product.files  # Returns an array of FetchAppAPI::File for this product
 ```
 # Orders
 ```ruby
@@ -64,7 +64,9 @@
 
 	order.stats  # Returns a FetchAppAPI::Order with only statistical fields filled in
 
-	downloads = order.downloads  # Returns an array of FetchAppAPI::Downloads for this order
+	order_items = order.order_items # Returns an array of FetchAppAPI::OrderItem for this order
 
-	files = product.files  # Returns an array of FetchAppAPI::Files for this product
+	downloads = order.downloads  # Returns an array of FetchAppAPI::Download for this order
+
+	files = product.files  # Returns an array of FetchAppAPI::File for this product
 ```
