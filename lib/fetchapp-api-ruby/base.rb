@@ -93,11 +93,11 @@ module FetchAppAPI
         when 200..299 then
           response
         when 300.399 then
-          raise(response.messsage)
+          raise("#{response.message}: #{response['message']}")
         when 400..499 then
-          raise(response.message)
+           raise("#{response.message}: #{response['message']}")
         when 500..599 then
-          raise(response.message)
+          raise("#{response.message}: #{response['message']}")
         else
           raise("Unknown Response")
       end
