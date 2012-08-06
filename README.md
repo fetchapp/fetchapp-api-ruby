@@ -62,11 +62,27 @@
 
 	order.destroy
 
+	order.expire # Expires the order
+
+	order.send_email # Reopens the order and sends out an email to the customer
+
 	order.stats  # Returns a FetchAppAPI::Order with only statistical fields filled in
 
 	order_items = order.order_items # Returns an array of FetchAppAPI::OrderItem for this order
 
 	downloads = order.downloads  # Returns an array of FetchAppAPI::Download for this order
 
-	files = product.files  # Returns an array of FetchAppAPI::File for this product
+```
+
+# OrderItems
+```ruby
+	order_items = order.order_items # Returns an array of FetchAppAPI::OrderItem for this order
+
+	order_item = FetchAppAPI::Order.find("445566")
+
+    order_item.expire # Expires the OrderItem
+
+	downloads = order_item.downloads  # Returns an array of FetchAppAPI::Download for this order item
+
+	files = order_item.files  # Returns an array of FetchAppAPI::File for this order item
 ```
