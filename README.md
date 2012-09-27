@@ -4,7 +4,7 @@
 
 # Setup
 ```ruby
-	FetchAppAPI::Base.basic_auth('demokey', 'demotoken')
+	FetchAppAPI::Base.basic_auth(:key => 'demokey', :token => 'demotoken')
 ```
 # Account
 ```ruby
