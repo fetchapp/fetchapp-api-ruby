@@ -1,4 +1,3 @@
-
 # Extend the String class to have the handy .blank? method
 class String
   def blank?
@@ -36,6 +35,23 @@ module FetchAppAPI
         when Integer, String
           new(selector)
       end
+    end
+
+    # Determines whether or not we can connect to the API by
+    # calling the time method
+    def self.can_connect?
+      begin
+        result = execute(:get, "/time")["time"]
+        return !(result.empty? || result.nil?)
+      rescue
+        return false
+      end
+
+    end
+
+    # Returns the server time
+    def self.time
+      return execute(:get, "/time")["time"]
     end
 
     class Connector #:nodoc:
@@ -95,7 +111,7 @@ module FetchAppAPI
         when 300.399 then
           raise("#{response.message}: #{response['message']}")
         when 400..499 then
-           raise("#{response.message}: #{response['message']}")
+          raise("#{response.message}: #{response['message']}")
         when 500..599 then
           raise("#{response.message}: #{response['message']}")
         else

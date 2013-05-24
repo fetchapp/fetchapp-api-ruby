@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fetchapp-api-ruby (2.0.0)
+    fetchapp-api-ruby (2.0.1)
       httparty
 
 GEM

@@ -5,6 +5,8 @@
 # Setup
 ```ruby
 	FetchAppAPI::Base.basic_auth(:key => 'demokey', :token => 'demotoken')
+	FetchAppAPI::Base.can_connect?  # => true or false
+
 ```
 # Account
 ```ruby
