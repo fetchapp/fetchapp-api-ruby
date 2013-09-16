@@ -57,7 +57,7 @@
 	    :first_name => "Donald",
 	    :last_name => "Duck",
 	    :email => "donald@duck.com",
-	    :order_items => [{:sku => 'ABC0001'}, {:sku => 'ABC0002'}]
+	    :order_items => [{:sku => 'ABC0001', :price => 10.0}, {:sku => 'ABC0002'}]
 	)
 
 	order.update(:first_name => "Daffy")
